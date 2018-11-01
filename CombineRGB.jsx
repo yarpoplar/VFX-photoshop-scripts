@@ -37,6 +37,7 @@ function main()
 			activeDocument.paste();
 			selectedLayers[i].visible = false;
 		}
+		activeDocument.selection.deselect();
 	}
 }
 
