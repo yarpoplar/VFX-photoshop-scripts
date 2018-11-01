@@ -6,7 +6,7 @@ Feel free to contribute and add new scripts.
 Creates transparent layer from grayscale layer, where black color is transparency.
 ![](https://vgy.me/AcMd7O.gif "MakeTransparent")
 
-##CombineRGB
+## CombineRGB
 Combines selected layers to R+G+B mask
 ![](https://vgy.me/lclFxW.gif "CombineRGB")
 
