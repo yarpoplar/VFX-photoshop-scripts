@@ -5,11 +5,11 @@
 
 main();
 
-function main()
-{
-	if(activeDocument.mode == DocumentMode.RGB)
+function main() {
+	if (activeDocument.mode == DocumentMode.RGB)
 	{
 		var selectedLayers = getSelectedLayers();
+
 		for (var i = 0; i < selectedLayers.length; i++)
 		{
 			selectedLayers[i].visible = false;
@@ -26,6 +26,7 @@ function main()
 		newLayer.visible = false;
 
 		var iMax = selectedLayers.length < 3 ? selectedLayers.length : 3;
+
 		for (var i = 0; i < iMax; i++)
 		{
 			activeDocument.activeLayer = selectedLayers[i];
@@ -37,24 +38,28 @@ function main()
 			activeDocument.paste();
 			selectedLayers[i].visible = false;
 		}
+
 		activeDocument.selection.deselect();
 	}
 }
 
-function getSelectedLayers()
-{
+function getSelectedLayers() {
   var resultLayers=new Array();
-	try{
+
+	try {
 		var idGrp = stringIDToTypeID( "groupLayersEvent" );
 		var descGrp = new ActionDescriptor();
 		var refGrp = new ActionReference();
+
 		refGrp.putEnumerated(charIDToTypeID( "Lyr " ),charIDToTypeID( "Ordn" ),charIDToTypeID( "Trgt" ));
 		descGrp.putReference(charIDToTypeID( "null" ), refGrp );
 		executeAction( idGrp, descGrp, DialogModes.NO );
+
 		for (var ix=0; ix < app.activeDocument.activeLayer.layers.length; ix++)
 		{
 			resultLayers.push(app.activeDocument.activeLayer.layers[ix]);
 		}
+
 		var id8 = charIDToTypeID( "slct" );
 		var desc5 = new ActionDescriptor();
 		var id9 = charIDToTypeID( "null" );
@@ -62,15 +67,16 @@ function getSelectedLayers()
 		var id10 = charIDToTypeID( "HstS" );
 		var id11 = charIDToTypeID( "Ordn" );
 		var id12 = charIDToTypeID( "Prvs" );
+
 		ref2.putEnumerated( id10, id11, id12 );
 		desc5.putReference( id9, ref2 );
 		executeAction( id8, desc5, DialogModes.NO );
 	} 
-	catch (e) 
-	{
+	catch (e) {
 		alert(e);
 	}
-  return resultLayers;
+
+	return resultLayers;
 }   
 
 $.writeln(getSelectedLayers());
