@@ -41,7 +41,7 @@ function DublicateAndRotate(angle, numOfCopies) {
     for (var i = numOfCopies - 1; i >= 0; i--) {
         var oldLayer = activeDocument.activeLayer;
         var newLayer = oldLayer.duplicate();
-        oldLayer.visible = false;
+        //oldLayer.visible = false;
         newLayer.rotate(angle);
         activeDocument.activeLayer = newLayer;
     }
