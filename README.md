@@ -22,3 +22,7 @@ If PSD file doesn't exist, script will create it in user selected folder
 ## SaveToTGA
 Save current image to TGA in location, where PSD file is stored.  
 If PSD file doesn't exist, script will create it in user selected folder
+
+## SaveToJPG
+Save current image to JPG in location, where PSD file is stored.  
+If PSD file doesn't exist, script will create it in user selected folder
